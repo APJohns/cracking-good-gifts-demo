@@ -29,7 +29,7 @@ export default function Home() {
           <h1>Cracking Good Gifts</h1>
         </Link>
         <p className={styles.tagline}>Crafting a better world<br />One gift at a time</p>
-        <Link href="#getInTouch" className={styles.cta}>Get in Touch</Link>
+        <Link href="#getInTouch" className={`${styles.cta} ${styles.btn}`}>Get in Touch</Link>
       </header>
       <main className={inter.className}>
         <section>
@@ -50,19 +50,20 @@ export default function Home() {
         <section className={styles.contact}>
           <h2 id="getInTouch">Get in Touch</h2>
           <p>Want to order some cards? Have us set up a stand at your event?</p>
-          <form className={styles.contactForm}>
+          <form name="contact" method="POST" className={styles.contactForm} data-netlify="true">
             <label>
               Name
-              <input type="text" />
+              <input type="text" name="name" />
             </label>
             <label>
               E-mail
-              <input type="email" />
+              <input type="email" name="email" />
             </label>
             <label className={styles.message}>
               Message
-              <textarea rows={4}></textarea>
+              <textarea name="message" rows={4}></textarea>
             </label>
+            <button type="submit" className={styles.btn}>Send</button>
           </form>
         </section>
       </main>
