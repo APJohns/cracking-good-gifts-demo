@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Viaoda_Libre, Inter } from 'next/font/google'
 import styles from '@/styles/Index.module.css'
+import Link from 'next/link'
 
 const viaoda = Viaoda_Libre({ weight: "400", subsets: ['latin'] })
 const inter = Inter({ subsets: ['latin'] })
@@ -24,17 +25,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.hero}>
-        <a href="/" className={`${styles.title} ${viaoda.className}`}>
+        <Link href="/" className={`${styles.title} ${viaoda.className}`}>
           <h1>Cracking Good Gifts</h1>
-        </a>
+        </Link>
         <p className={styles.tagline}>Crafting a better world<br />One gift at a time</p>
-        <a href="#getInTouch" className={styles.cta}>Get in Touch</a>
+        <Link href="#getInTouch" className={styles.cta}>Get in Touch</Link>
       </header>
       <main className={inter.className}>
         <section>
           <ul className={styles.gallery}>
             {cards.map((card, i) =>
-              <li>
+              <li key={card.alt}>
                 <Image
                   src={`/cards/card${i + 1}.jpg`}
                   alt={card.alt}
