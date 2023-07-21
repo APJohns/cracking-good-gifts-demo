@@ -50,7 +50,12 @@ export default function Home() {
         <section className={styles.contact}>
           <h2 id="getInTouch">Get in Touch</h2>
           <p>Want to order some cards? Have us set up a stand at your event?</p>
-          <form name="contact" method="POST" className={styles.contactForm} data-netlify="true">
+          <form
+            data-netlify="true"
+            name="contact"
+            method="POST"
+            className={styles.contactForm}
+            onSubmit={e => e.preventDefault()}>
             <label>
               Name
               <input type="text" name="name" />
