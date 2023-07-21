@@ -3,25 +3,11 @@ import Image from 'next/image'
 import { Viaoda_Libre, Inter } from 'next/font/google'
 import styles from '@/styles/Index.module.css'
 import Link from 'next/link'
-import { FormEvent } from 'react'
 
 const viaoda = Viaoda_Libre({ weight: "400", subsets: ['latin'] })
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
-  const submitForm = (event: FormEvent) => {
-    const myForm = event.target as HTMLFormElement;
-    const formData = new FormData(myForm) as any;
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-  }
-
-
   const cards = [
     {alt: 'Card 1'},
     {alt: 'Card 2'},
@@ -30,6 +16,7 @@ export default function Home() {
     {alt: 'Card 5'},
     {alt: 'Card 6'},
   ]
+
   return (
     <>
       <Head>
@@ -68,8 +55,7 @@ export default function Home() {
             data-netlify="true"
             name="contact"
             method="POST"
-            className={styles.contactForm}
-            onSubmit={submitForm}>
+            className={styles.contactForm}>
             <input type="hidden" name="form-name" value="contact" />
             <label>
               Name
